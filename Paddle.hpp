@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 //Paddle
-constexpr float paddleSpeed = 0.2;
+constexpr float paddleSpeed = 400;
 constexpr int paddleWidth = 10;
 constexpr int paddleHeight = 100;
 
@@ -17,8 +17,6 @@ class Paddle : public sf::RectangleShape{
 public:
     Paddle(sf::Vector2f size = {paddleWidth, paddleHeight});
     void reset();
-    void mv();
-    void setDirection(const sf::Vector2f& newDirection);
     float getSpeed()        const { return speed_; }
 
 private:

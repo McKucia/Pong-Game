@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/dell/CLionProjects/Pong_sfml/Ball.cpp
-Ball.hpp
-/home/dell/CLionProjects/Pong_sfml/Ball.hpp
-GameManager.hpp
-/home/dell/CLionProjects/Pong_sfml/GameManager.hpp
-
 /home/dell/CLionProjects/Pong_sfml/Ball.hpp
 SFML/Graphics.hpp
 -
@@ -28,17 +22,7 @@ Ball.hpp
 Paddle.hpp
 /home/dell/CLionProjects/Pong_sfml/Paddle.hpp
 
-/home/dell/CLionProjects/Pong_sfml/Paddle.cpp
-Paddle.hpp
-/home/dell/CLionProjects/Pong_sfml/Paddle.hpp
-GameManager.hpp
-/home/dell/CLionProjects/Pong_sfml/GameManager.hpp
-
 /home/dell/CLionProjects/Pong_sfml/Paddle.hpp
 SFML/Graphics.hpp
 -
-
-/home/dell/CLionProjects/Pong_sfml/main.cpp
-GameManager.hpp
-/home/dell/CLionProjects/Pong_sfml/GameManager.hpp
 

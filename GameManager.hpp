@@ -21,7 +21,6 @@ public:
 
 private:
     sf::RenderWindow Window;
-    sf::Event event;
     Paddle paddle1_;
     Paddle paddle2_;
     Ball ball_;

@@ -20,20 +20,5 @@ void Paddle::reset(){
     moveDirection_ = {0, 0};
 }
 
-void Paddle::mv(){
-    if(getPosition().y - getSize().y / 2 <= 0){
-        setPosition(getPosition().x, getPosition().y + 0.1);
-        return;
-    }
-    if(getPosition().y + getSize().y / 2 >= windowHeight){
-        setPosition(getPosition().x, getPosition().y - 0.1);
-        return;
-    }
-    this->move(moveDirection_);
-}
-
-void Paddle::setDirection(const sf::Vector2f &newDirection) {
-    moveDirection_ = newDirection;
-}
 
 

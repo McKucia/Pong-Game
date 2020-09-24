@@ -5,6 +5,7 @@
 //Ball
 constexpr float ballSpeed = 0.2;
 constexpr int ballRadius = 7;
+constexpr int ballPoints = 60;
 
 enum class Direction{
     STOP = 0,
@@ -18,7 +19,7 @@ enum class Direction{
 
 class Ball : public sf::CircleShape{
 public:
-    Ball(int r = ballRadius);
+    Ball(int r = ballRadius, int points = ballPoints);
     void reset();
     void randomDirection();
     bool mv(sf::RectangleShape& R1, sf::RectangleShape& R2, Direction dir);

@@ -1,7 +1,7 @@
 #include "Ball.hpp"
 #include "GameManager.hpp"
 
-Ball::Ball(int r) : sf::CircleShape(r){
+Ball::Ball(int r, int points) : sf::CircleShape(r, points){
     this->setFillColor(sf::Color(161, 48, 52));
     speed_ = ballSpeed;
     direction_ = Direction::STOP;

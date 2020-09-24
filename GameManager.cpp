@@ -29,29 +29,33 @@ void GameManager::createWindow(){
 }
 
 void GameManager::Update(){
+    sf::Clock clock;
     while(Window.isOpen()){
+        sf::Event event;
         while(Window.pollEvent(event)){
             if(event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
                 Window.close();
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && ball_.getCurrentDirection() == Direction::STOP)
                 ball_.randomDirection();
-            if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::W)
-                paddle1_.setDirection({0, -paddle1_.getSpeed()});
-            if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S)
-                paddle1_.setDirection({0, paddle1_.getSpeed()});
-            if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up)
-                paddle2_.setDirection({0, -paddle2_.getSpeed()});
-            if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down)
-                paddle2_.setDirection({0, paddle2_.getSpeed()});
-
-            if(event.type == sf::Event::KeyReleased && (event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::S ))
-                paddle1_.setDirection({0, 0});
-            if(event.type == sf::Event::KeyReleased && (event.key.code == sf::Keyboard::Up || event.key.code == sf::Keyboard::Down))
-                paddle2_.setDirection({0, 0});
         }
+
+        float deltaTime = clock.restart().asSeconds();
+
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && paddle1_.getPosition().y - paddle1_.getSize().y / 2 > 3){
+            paddle1_.move(0, -paddle1_.getSpeed() * deltaTime);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) && paddle1_.getPosition().y + paddle1_.getSize().y / 2 < windowHeight - 3){
+            paddle1_.move(0, paddle1_.getSpeed() * deltaTime);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && paddle2_.getPosition().y - paddle2_.getSize().y / 2 > 3){
+            paddle2_.move(0, -paddle2_.getSpeed() * deltaTime);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && paddle2_.getPosition().y + paddle2_.getSize().y / 2 < windowHeight - 3){
+            paddle2_.move(0, paddle2_.getSpeed() * deltaTime);
+        }
+
         Window.clear(sf::Color(241, 235, 228));
-        paddle1_.mv();
-        paddle2_.mv();
+
         bool restart = ball_.mv(paddle1_, paddle2_, ball_.getCurrentDirection());
         if(restart) {
             restartGame();
