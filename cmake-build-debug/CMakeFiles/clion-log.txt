@@ -1,0 +1,5 @@
+/snap/clion/126/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/dell/CLionProjects/Pong_sfml
+-- Found SFML .. in /usr/include
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dell/CLionProjects/Pong_sfml/cmake-build-debug

@@ -1,0 +1,3 @@
+/home/dell/CLionProjects/Pong_sfml/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/dell/CLionProjects/Pong_sfml/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/dell/CLionProjects/Pong_sfml/cmake-build-debug/CMakeFiles/Pong_sfml.dir
