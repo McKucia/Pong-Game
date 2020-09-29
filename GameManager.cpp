@@ -1,7 +1,20 @@
 #include "GameManager.hpp"
+#include <iostream>
 
 GameManager::GameManager(std::string n1, std::string n2) : name1_(n1), name2_(n2){
     font_.loadFromFile("../orange_juice.ttf");
+
+    player1Points_.setFont(font_);
+    player1Points_.setString("0");
+    player1Points_.setCharacterSize(24);
+    player1Points_.setFillColor(sf::Color(167, 152, 139));
+    player1Points_.setPosition(20, windowHeight - 40);
+
+    player2Points_.setFont(font_);
+    player2Points_.setString("0");
+    player2Points_.setCharacterSize(24);
+    player2Points_.setFillColor(sf::Color(167, 152, 139));
+    player2Points_.setPosition(windowWidth - 30, windowHeight - 40);
 
     name1Text_.setFont(font_);
     name1Text_.setString(name1_);
@@ -66,6 +79,8 @@ void GameManager::Update(){
 }
 
 void GameManager::draw(){
+    Window.draw(player1Points_);
+    Window.draw(player2Points_);
     Window.draw(ball_);
     Window.draw(paddle1_);
     Window.draw(paddle2_);
@@ -76,6 +91,14 @@ void GameManager::draw(){
 }
 
 void GameManager::restartGame(){
+    if(ball_.getWinner() == 1) {
+        paddle1_.setPoints(paddle1_.getPoints() + 1);
+        player1Points_.setString(std::to_string(paddle1_.getPoints()));
+    }
+    else if(ball_.getWinner() == 0) {
+        paddle2_.setPoints(paddle2_.getPoints() + 1);
+        player2Points_.setString(std::to_string(paddle2_.getPoints()));
+    }
     ball_.reset();
     paddle1_.reset();
     paddle2_.reset();

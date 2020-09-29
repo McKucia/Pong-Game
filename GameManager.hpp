@@ -29,4 +29,6 @@ private:
     std::string name2_;
     sf::Text name1Text_;
     sf::Text name2Text_;
+    sf::Text player1Points_;
+    sf::Text player2Points_;
 };

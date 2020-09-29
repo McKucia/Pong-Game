@@ -25,8 +25,10 @@ public:
     bool mv(sf::RectangleShape& R1, sf::RectangleShape& R2, Direction dir);
     bool checkHit(sf::RectangleShape& R1, sf::RectangleShape& R2);
     Direction getCurrentDirection() const { return direction_; }
+    bool getWinner()                const { return winner_; }
 
 private:
+    int winner_;
     float speed_;
     int startPosX_;
     int startPosY_;

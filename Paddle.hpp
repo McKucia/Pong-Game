@@ -5,7 +5,7 @@
 //Paddle
 constexpr float paddleSpeed = 400;
 constexpr int paddleWidth = 10;
-constexpr int paddleHeight = 100;
+constexpr int paddleHeight = 60;
 
 enum class UpOrDown{
     UP = 0,
@@ -17,9 +17,12 @@ class Paddle : public sf::RectangleShape{
 public:
     Paddle(sf::Vector2f size = {paddleWidth, paddleHeight});
     void reset();
-    float getSpeed()        const { return speed_; }
+    float getSpeed()                const { return speed_; }
+    int getPoints()                 const { return points_; }
+    void setPoints(int newAmount)         { points_ = newAmount; }
 
 private:
+    int points_;
     static int paddleIndex_;
     float speed_;
     int startPosX_;

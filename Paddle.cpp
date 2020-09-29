@@ -5,6 +5,7 @@ int Paddle::paddleIndex_ = 0;
 
 Paddle::Paddle(sf::Vector2f size) : sf::RectangleShape(size){
     paddleIndex_++;
+    points_ = 0;
     moveDirection_ = {0, 0};
     speed_ = paddleSpeed;
     this->setFillColor(sf::Color(110, 13, 37));

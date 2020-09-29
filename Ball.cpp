@@ -1,8 +1,10 @@
 #include "Ball.hpp"
 #include "GameManager.hpp"
+#include <iostream>
 
 Ball::Ball(int r, int points) : sf::CircleShape(r, points){
     this->setFillColor(sf::Color(161, 48, 52));
+    winner_ = 3;
     speed_ = ballSpeed;
     direction_ = Direction::STOP;
 
@@ -66,9 +68,11 @@ bool Ball::checkHit(sf::RectangleShape &R1, sf::RectangleShape &R2){
 
     //Hit Wall
     if(getPosition().x + getRadius() <= 0){
+        winner_ = 0;
         return true;
     }
     if(getPosition().x - getRadius() >= windowWidth){
+        winner_ = 1;
         return true;
     }
 
